@@ -1,5 +1,7 @@
-import React from "react";
+import { routes } from "../../../constants";
 
 export default function Skills() {
-  return <div>Skills</div>;
+  return <section id={routes.skills.pathRoute} style={{ height: "20%" }}>
+    Skills
+  </section>;
 }

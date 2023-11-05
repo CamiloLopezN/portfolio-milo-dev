@@ -1,5 +1,5 @@
-import React from "react";
+import { routes } from "../../../constants";
 
 export default function Contact() {
-  return <div>Contact</div>;
+  return <section id={routes.contact.pathRoute} style={{ height: "20%" }}>Contact</section>;
 }

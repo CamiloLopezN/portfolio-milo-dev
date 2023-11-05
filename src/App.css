@@ -1,16 +1,27 @@
 @font-face {
-  font-family: "Inter";
-  src: local("Inter"),
+    font-family: "Inter";
+    src: local("Inter"),
     url("./assets/fonts/Inter-Variable.ttf") format("truetype");
-  font-weight: auto;
+    font-weight: auto;
 }
 
 * {
-  margin: 0;
-  box-sizing: border-box;
+    margin: 0;
+    box-sizing: border-box;
 }
 
+html {
+    height: 500%;
+}
+
+body, main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #f4f4f4;
+    font-family: "Inter", sans-serif;
+    background-color: #f4f4f4;
 }

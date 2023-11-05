@@ -3,9 +3,7 @@ import headerStyles from "./Header.module.css";
 import {
   routes,
   CLOSE_MENU,
-  CLOSE_MENU_ICON,
   OPEN_MENU,
-  OPEN_MENU_ICON,
 } from "../../../constants";
 import MiloDevIcon from "../../icons/MiloDevIcon";
 import HamburgerMenuIcon from "./icons/HamburgerMenuIcon";
@@ -38,13 +36,11 @@ export default function Header() {
           title={OPEN_MENU}>
           <HamburgerMenuIcon
             className={headerStyles.navIcon}
-            alt={OPEN_MENU_ICON}
           />
         </a>
         <a href="#" className={headerStyles.navClose} title={CLOSE_MENU}>
           <CloseMenuIcon
             className={headerStyles.navIcon}
-            alt={CLOSE_MENU_ICON}
           />
         </a>
       </nav>

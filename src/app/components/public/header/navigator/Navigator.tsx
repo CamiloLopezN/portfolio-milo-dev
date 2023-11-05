@@ -7,7 +7,7 @@ export default function Navigator({ routes }: Routes) {
 
   return (
     <>
-      {routes.map(({ nameRoute, pathRoute, pathIconRoute }) => (
+      {routes.map(({ nameRoute, pathRoute }) => (
         <li className={navigatorStyles.navigatorItem} key={pathRoute}>
           <a
             className={
@@ -15,7 +15,7 @@ export default function Navigator({ routes }: Routes) {
                 ? navigatorStyles.navigatorSelectedLink
                 : navigatorStyles.navigatorLink
             }
-            href={pathRoute}>
+            href={`#${pathRoute}`}>
             {nameRoute}
           </a>
         </li>

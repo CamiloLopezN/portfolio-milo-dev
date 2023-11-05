@@ -40,6 +40,7 @@
 }
 
 .navClose {
+    z-index: 1;
     transition: transform 0.2s ease-out;
     transform: var(--state-close);
 }
@@ -53,6 +54,7 @@
 }
 
 .navLinks {
+    z-index: 1;
     background-color: #100b31;
     position: absolute;
     top: 0;

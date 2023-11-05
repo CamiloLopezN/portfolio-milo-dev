@@ -1,27 +1,27 @@
 export const routes = {
   home: {
     nameRoute: "Home",
-    pathRoute: "/",
+    pathRoute: "home",
     pathIconRoute: "ai chat",
   },
   skills: {
     nameRoute: "Skills",
-    pathRoute: "/skills",
+    pathRoute: "skills",
     pathIconRoute: "dashboard",
   },
   work: {
     nameRoute: "Work",
-    pathRoute: "/work",
+    pathRoute: "work",
     pathIconRoute: "dashboard",
   },
   aboutMe: {
     nameRoute: "About Me",
-    pathRoute: "/about-me",
+    pathRoute: "about-me",
     pathIconRoute: "dashboard",
   },
   contact: {
     nameRoute: "Contact",
-    pathRoute: "/contact",
+    pathRoute: "contact",
     pathIconRoute: "dashboard",
   },
 };

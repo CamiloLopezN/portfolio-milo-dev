@@ -1,5 +1,6 @@
 .sectionContainer {
     background: #100b31;
+    flex-grow: 1;
 }
 
 .container {

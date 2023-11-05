@@ -1,5 +1,5 @@
-import React from "react";
+import { routes } from "../../../constants";
 
 export default function AboutMe() {
-  return <div>AboutMe</div>;
+  return <section id={routes.aboutMe.pathRoute} style={{ height: "20%" }}>About Me</section>;
 }

@@ -1,6 +1,6 @@
 import meImage from "../../../../assets/images/me.png";
 import homeStyles from "./Home.module.css";
-import { ME_IMAGE_TEXT, MY_NAME, socialNetworks } from "../../../constants";
+import { ME_IMAGE_TEXT, MY_NAME, routes, socialNetworks } from "../../../constants";
 
 export default function Home() {
   const arraySocialNetworks = [
@@ -10,7 +10,7 @@ export default function Home() {
   ];
 
   return (
-    <section className={homeStyles.sectionContainer}>
+    <section className={homeStyles.sectionContainer} id={routes.home.pathRoute}>
       <div className={`${homeStyles.container} ${homeStyles.homeContainer}`}>
         <div className={homeStyles.divContainer}>
           <h1 className={homeStyles.nameText}>{MY_NAME}</h1>
