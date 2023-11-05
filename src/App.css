@@ -5,6 +5,13 @@
     font-weight: auto;
 }
 
+:root {
+}
+
+header, section {
+    background: #100b31;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -25,4 +32,17 @@ body, main {
 body {
     font-family: "Inter", sans-serif;
     background-color: #f4f4f4;
+}
+
+::-webkit-scrollbar {
+    width: 0.188em;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #100b31;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f4f4f4;
+    border-radius: 3.25em;
 }

@@ -1,0 +1,22 @@
+.slideMenuContainer {
+    top: 50%;
+    position: fixed;
+    transform: translate(0, -50%);
+    transition: left 0.5s ease;
+}
+
+.slideMenuList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+}
+
+
+@media (max-width: 1170px) {
+
+    .slideMenuContainer {
+        visibility: hidden;
+    }
+
+}

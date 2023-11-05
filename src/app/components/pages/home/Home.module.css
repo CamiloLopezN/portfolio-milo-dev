@@ -1,5 +1,12 @@
+.headerAndHomeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20%
+}
+
+
 .sectionContainer {
-    background: #100b31;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -63,7 +70,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    gap: 1em;
+    gap: 3em;
     padding: 1em;
     color: #fafafa;
     border-radius: 0 0 0.5em 0.5em;

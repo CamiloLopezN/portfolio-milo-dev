@@ -1,5 +1,4 @@
 .headerContainer {
-    background-color: #100b31;
     text-align: center;
     color: white;
 }
@@ -14,8 +13,7 @@
     --state-close: scale(0);
     --state-hamburger: scale(1);
     --state-menu: translate(-100%);
-
-    padding: 1.5em 0 1.5em 0;
+    padding: 1.5em 0.7em;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     justify-content: space-between;
@@ -26,6 +24,7 @@
     --state-close: scale(1);
     --state-hamburger: scale(0);
     --state-menu: translate(0);
+    --postion-header: static;
 }
 
 .navLogo {
@@ -80,11 +79,18 @@
     width: 2.5em;
 }
 
+@media (max-width: 1170px) {
+    .headerContainer {
+        top: 0;
+        width: 100%;
+    }
+}
+
 @media (min-width: 1170px) {
     .navContainer {
         --state-hamburger: scale(0);
         --state-menu: translate(0);
-        padding: 3em 0;
+        padding: 3em 0.7em;
     }
 
     .navContainer:target {

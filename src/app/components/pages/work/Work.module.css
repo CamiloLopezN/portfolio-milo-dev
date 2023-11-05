@@ -1,0 +1,21 @@
+
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1em;
+    padding: 0.7em;
+}
+
+
+.one {
+    background-color: #3362f4;
+}
