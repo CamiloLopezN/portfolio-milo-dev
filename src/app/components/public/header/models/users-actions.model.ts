@@ -1,7 +1,5 @@
-import { StaticImageData } from "next/image";
-
 export interface UserAction {
-  pathIcon: StaticImageData;
+  // pathIcon: StaticImageData;
   nameAction: string;
   onClickFunction?: () => void;
 }
