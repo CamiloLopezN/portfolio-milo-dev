@@ -27,9 +27,6 @@ export default function Header() {
             ]}
           />
         </ul>
-        <h2 className={headerStyles.navText}>
-          Full-Stack <strong>Developer</strong>
-        </h2>
         <a
           href="#navMenu"
           className={headerStyles.navHamburger}

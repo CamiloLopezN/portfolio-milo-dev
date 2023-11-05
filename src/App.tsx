@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <section style={{ display: "flex", flexDirection: "column", height: "20%" }}>
+      <section style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "20%" }}>
         <Header />
         <Home />
       </section>

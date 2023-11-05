@@ -12,6 +12,7 @@
 
 html {
     height: 500%;
+    scroll-behavior: smooth;
 }
 
 body, main {
