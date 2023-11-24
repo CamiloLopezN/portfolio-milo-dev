@@ -2,7 +2,7 @@
 .sectionContainer {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .container {
@@ -10,6 +10,7 @@
     width: 90%;
     overflow: hidden;
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1em;
     padding: 0.7em;
