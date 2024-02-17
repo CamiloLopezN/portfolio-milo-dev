@@ -39,14 +39,16 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 0.388em;
+    width: 8px;
+    padding: 0 !important;
 }
 
 ::-webkit-scrollbar-track {
     background-color: #100b31;
+    margin: 0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #f4f4f4;
+    background-color: #3362f4;
     border-radius: 3.25em;
 }

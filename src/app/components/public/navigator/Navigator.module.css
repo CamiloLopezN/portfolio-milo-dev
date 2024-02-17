@@ -2,7 +2,6 @@
 .navigatorSelectedLink {
   padding: 0.8em;
   border-radius: 1em;
-  width: -moz-fit-content;
   width: fit-content;
   text-decoration: none;
   letter-spacing: 0.1em;
@@ -13,6 +12,7 @@
   background-color: transparent;
   color: #ffffff;
 }
+
 .navigatorLink:hover {
   box-shadow: 0 0 0.3em #ffffff;
 }
