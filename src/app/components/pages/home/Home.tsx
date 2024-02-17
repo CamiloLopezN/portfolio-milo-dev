@@ -1,6 +1,6 @@
 import meImage from "../../../../assets/images/me.png";
 import homeStyles from "./Home.module.css";
-import { ME_IMAGE_TEXT, MY_NAME, routes, socialNetworks } from "../../../constants";
+import { ME_IMAGE_TEXT, MY_NAME, RoutesPath, socialNetworks } from "../../../utils/constants";
 import Header from "../../public/header/Header.tsx";
 
 export default function Home() {
@@ -11,9 +11,9 @@ export default function Home() {
   ];
 
   return (
-    <section id={routes.home.pathRoute} className={homeStyles.headerAndHomeContainer}>
+    <section id={RoutesPath.HOME} className={homeStyles.headerAndHomeContainer}>
       <Header />
-      <section className={homeStyles.sectionContainer}>
+      <div className={homeStyles.sectionContainer}>
         <div className={`${homeStyles.container} ${homeStyles.homeContainer}`}>
           <div className={homeStyles.divContainer}>
             <h1 className={homeStyles.nameText}>{MY_NAME}</h1>
@@ -41,7 +41,7 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>
+      </div>
     </section>
   );
 }

@@ -1,6 +1,6 @@
-import iconGithub from "../../assets/icons/github.svg";
-import iconInstagram from "../../assets/icons/instagram.svg";
-import iconLinkedin from "../../assets/icons/linkedin.svg";
+import iconGithub from "../../../assets/icons/github.svg";
+import iconInstagram from "../../../assets/icons/instagram.svg";
+import iconLinkedin from "../../../assets/icons/linkedin.svg";
 
 export const socialNetworks = {
   github: {

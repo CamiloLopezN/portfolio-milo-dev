@@ -1,43 +1,46 @@
 import navigatorStyles from "./Navigator.module.css";
-import { Routes } from "../models/routes.model.ts";
-import { routes as getRoutes } from "../../../constants";
 import IconHome from "./icons/IconHome.tsx";
 import IconCodeWorkingOutline from "./icons/IconCodeWorkingOutLine.tsx";
 import IconAboutDotMe from "./icons/IconAboutDotMe.tsx";
 import IconBxMessageDetail from "./icons/IconBxMessageDetail.tsx";
 import IconHammer from "./icons/IconHammer.tsx";
+import { RoutesTypes } from "../../../utils/types/RoutesTypes.ts";
+import { RoutesIconPath } from "../../../utils/constants";
+import { CurrentPathContext } from "../../../utils/contexts/CurrentPathContext.ts";
+import { useContext } from "react";
 
 interface navigatorType {
+  routes: RoutesTypes[];
   isSlideMenu?: boolean;
 }
 
-export default function Navigator({ routes, isSlideMenu }: Routes & navigatorType) {
-  //const pathname = usePathname();
-  const pathName = "/";
+export default function Navigator({ routes, isSlideMenu }: navigatorType) {
+
+  const {currentPath} = useContext(CurrentPathContext);
 
   return (
     <>
-      {routes.map(({ nameRoute, pathRoute, pathIconRoute }) => (
-        <li className={navigatorStyles.navigatorItem} key={pathRoute}>
+      {routes.map(({ routePath, routeIconPath, routeName }) => (
+        <li className={navigatorStyles.navigatorItem} key={routePath}>
           <a
             className={
-              pathName === pathRoute
+              currentPath === routePath
                 ? navigatorStyles.navigatorSelectedLink
                 : navigatorStyles.navigatorLink
             }
-            href={`#${pathRoute}`}>
+            href={`#${routePath}`}>
 
             {isSlideMenu && (
               <>
-                {pathIconRoute === getRoutes.home.pathIconRoute && <IconHome />}
-                {pathIconRoute === getRoutes.skills.pathIconRoute && <IconHammer />}
-                {pathIconRoute === getRoutes.work.pathIconRoute && <IconCodeWorkingOutline />}
-                {pathIconRoute === getRoutes.aboutMe.pathIconRoute && <IconAboutDotMe />}
-                {pathIconRoute === getRoutes.contact.pathIconRoute && <IconBxMessageDetail />}
+                {routeIconPath === RoutesIconPath.HOME && <IconHome />}
+                {routeIconPath === RoutesIconPath.SKILLS && <IconHammer />}
+                {routeIconPath === RoutesIconPath.WORK && <IconCodeWorkingOutline />}
+                {routeIconPath === RoutesIconPath.ABOUT_ME && <IconAboutDotMe />}
+                {routeIconPath === RoutesIconPath.CONTACT && <IconBxMessageDetail />}
               </>
             )}
 
-            {isSlideMenu ?? nameRoute}
+            {isSlideMenu ?? routeName}
 
           </a>
         </li>

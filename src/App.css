@@ -12,6 +12,10 @@ header, section {
     background: #100b31;
 }
 
+section {
+    height: 20%;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
@@ -35,7 +39,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 0.188em;
+    width: 0.388em;
 }
 
 ::-webkit-scrollbar-track {

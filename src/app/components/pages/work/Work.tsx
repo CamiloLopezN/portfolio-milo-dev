@@ -1,14 +1,18 @@
-import { routes } from "../../../constants";
+import { RoutesPath } from "../../../utils/constants";
 import workStyle from "./Work.module.css";
-import ExpandableCard from "./card/ExpandableCard.tsx";
+import ExpandableCard from "./expandableCard/ExpandableCard.tsx";
 
 
 export default function Work() {
 
 
   return (
-    <section id={routes.work.pathRoute} className={workStyle.sectionContainer} style={{ height: "20%" }}>
+    <section id={RoutesPath.WORK} className={workStyle.sectionContainer}>
       <div className={workStyle.container}>
+        <ExpandableCard />
+        <ExpandableCard />
+        <ExpandableCard />
+        <ExpandableCard />
         <ExpandableCard />
         <ExpandableCard />
         <ExpandableCard />
