@@ -15,7 +15,7 @@ export default function ExpandableCard(): JSX.Element {
       onBackgroundFadeClick={() => setIsCardExpanded(false)}
       transition={{ type: "spring", stiffness: 200, damping: 20 }}
     >
-      <div className={`${expandableCardStyle.card}`} onClick={() => setIsCardExpanded(!isCardExpanded)}>
+      <div style={{backgroundColor: isCardExpanded ? "black" : "transparent"}} className={`${expandableCardStyle.card}`} onClick={() => setIsCardExpanded(!isCardExpanded)}>
         <img
           src={meImage}
           width={250}

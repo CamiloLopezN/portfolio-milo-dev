@@ -1,24 +1,25 @@
-
-.sectionContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.container {
-    margin: 0 auto;
-    width: 80%;
-    height: 80%;
-    overflow: hidden;
+.cardsContainer {
     display: grid;
-    place-items: center;
-    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+    height: inherit;
+    grid-auto-flow: column;
     grid-template-rows: repeat(2, 1fr);
-    gap: 3rem;
-    padding: 0.7em;
+    grid-template-columns: repeat(5, 100%);
+    padding: 2rem 1rem;
+    overflow: auto;
 }
 
 
-.one {
-    background-color: #3362f4;
+@media (min-width: 1170px) {
+    .cardsContainer {
+        display: grid;
+        gap: 2rem;
+        width: 100%;
+        height: inherit;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        overflow: hidden;
+        padding: 1rem;
+    }
 }

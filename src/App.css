@@ -12,10 +12,6 @@ header, section {
     background: #100b31;
 }
 
-section {
-    height: 20%;
-}
-
 * {
     margin: 0;
     box-sizing: border-box;

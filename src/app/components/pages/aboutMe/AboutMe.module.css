@@ -1,0 +1,16 @@
+.aboutMeSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.aboutMeContainer {
+
+}
+
+.title{
+    color: #f4f4f4;
+    font-size: 3rem;
+    font-weight: 300;
+    text-align: center;
+}

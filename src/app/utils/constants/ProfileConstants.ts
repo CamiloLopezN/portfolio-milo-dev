@@ -1,4 +1,4 @@
-export const MY_NAME = "Cristian López Niño";
+export const MY_NAME = "Cristian López";
 export const MY_TITLE = "Full-Stack Developer";
 export const MY_DESCRIPTION =
   "Passionate about web development and interested in <br /> the\n" +

@@ -1,14 +1,15 @@
 import { RoutesPath } from "../../../utils/constants";
 import workStyle from "./Work.module.css";
 import ExpandableCard from "./expandableCard/ExpandableCard.tsx";
+import Section from "../../public/section/Section.tsx";
 
 
 export default function Work() {
 
 
   return (
-    <section id={RoutesPath.WORK} className={workStyle.sectionContainer}>
-      <div className={workStyle.container}>
+    <Section id={RoutesPath.WORK} title={"My Work"}>
+      <div className={workStyle.cardsContainer}>
         <ExpandableCard />
         <ExpandableCard />
         <ExpandableCard />
@@ -17,8 +18,8 @@ export default function Work() {
         <ExpandableCard />
         <ExpandableCard />
         <ExpandableCard />
-
+        <ExpandableCard />
       </div>
-    </section>
+    </Section>
   );
 }

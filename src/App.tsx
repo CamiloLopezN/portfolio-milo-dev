@@ -38,11 +38,6 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    //window.location.hash = currentPath;
-    console.log(currentPath);
-  }, [currentPath]);
-
   return (
     <ScrollContext.Provider value={{ isVisibleSlide, setIsVisibleSlide }}>
       <CurrentPathContext.Provider value={{ currentPath, setCurrentPath }}>

@@ -1,5 +1,11 @@
 import { RoutesPath } from "../../../utils/constants";
+import Section from "../../public/section/Section.tsx";
 
 export default function Contact() {
-  return <section id={RoutesPath.CONTACT}>Contact</section>;
+  return (
+    <Section id={RoutesPath.CONTACT} title={"Contact"}>
+
+      <div></div>
+    </Section>
+  );
 }
