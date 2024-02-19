@@ -3,7 +3,7 @@
     gap: 2rem;
     width: 100%;
     height: inherit;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(5, 100%);
     padding: 2rem 1rem;

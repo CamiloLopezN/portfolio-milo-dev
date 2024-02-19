@@ -11,7 +11,10 @@ export default function Work() {
   return (
     <Section id={RoutesPath.WORK} title={"My Work"}>
       <div className={workStyle.cardsContainer}>
-        {workInfo.map(({ imagePath, description }) => (<ExpandableCard meImage={imagePath} description={description} />))}
+        {workInfo.map(({ imagePath, description, technologies }, index) => {
+          return <ExpandableCard key={index} imagePath={imagePath} description={description}
+                                 technologies={technologies} />;
+        })}
       </div>
     </Section>
   );

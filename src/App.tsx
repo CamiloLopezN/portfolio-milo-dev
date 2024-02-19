@@ -2,7 +2,6 @@ import "./App.css";
 import Home from "./app/components/pages/home/Home";
 import Work from "./app/components/pages/work/Work.tsx";
 import Skills from "./app/components/pages/skills/Skills.tsx";
-import Contact from "./app/components/pages/contact/Contact.tsx";
 import AboutMe from "./app/components/pages/aboutMe/AboutMe.tsx";
 import { SlideMenu } from "./app/components/public/slideMenu/SlideMenu.tsx";
 import { ScrollContext } from "./app/utils/contexts/ScrollContext.ts";
@@ -46,7 +45,6 @@ function App() {
         <Work />
         <Skills />
         <AboutMe />
-        <Contact />
       </CurrentPathContext.Provider>
     </ScrollContext.Provider>
   );

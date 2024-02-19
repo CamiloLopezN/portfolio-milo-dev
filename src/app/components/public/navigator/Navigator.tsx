@@ -5,7 +5,7 @@ import IconAboutDotMe from "./icons/IconAboutDotMe.tsx";
 import IconBxMessageDetail from "./icons/IconBxMessageDetail.tsx";
 import IconHammer from "./icons/IconHammer.tsx";
 import { RoutesTypes } from "../../../utils/types/RoutesTypes.ts";
-import { RoutesIconPath } from "../../../utils/constants";
+import { RoutesIconPath, RoutesPath } from "../../../utils/constants";
 import { CurrentPathContext } from "../../../utils/contexts/CurrentPathContext.ts";
 import { useContext } from "react";
 
@@ -16,7 +16,7 @@ interface navigatorType {
 
 export default function Navigator({ routes, isSlideMenu }: navigatorType) {
 
-  const {currentPath} = useContext(CurrentPathContext);
+  const { currentPath } = useContext(CurrentPathContext);
 
   return (
     <>
@@ -28,7 +28,7 @@ export default function Navigator({ routes, isSlideMenu }: navigatorType) {
                 ? navigatorStyles.navigatorSelectedLink
                 : navigatorStyles.navigatorLink
             }
-            href={`#${routePath}`}>
+            href={routePath === RoutesPath.CONTACT ? "mailto:cristian.lopez09825@gmail.com" : `#${routePath}`}>
 
             {isSlideMenu && (
               <>
