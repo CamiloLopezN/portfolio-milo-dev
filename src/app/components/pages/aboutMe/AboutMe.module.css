@@ -1,16 +1,133 @@
-.aboutMeSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.titleText {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.descriptionText {
+    font-size: 1rem;
+    font-weight: 200;
 }
 
 .aboutMeContainer {
-
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.title{
+.aboutMe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: #f4f4f4;
-    font-size: 3rem;
-    font-weight: 300;
-    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 100;
+    width: 60%;
+    height: 80%;
+}
+
+.meImageContainer {
+    border-radius: 100%;
+}
+
+.meImage {
+    width: 45dvh;
+    height: 45dvh;
+    border-radius: 100%;
+    object-fit: cover;
+    animation: shadowAnimation 10s infinite;
+    object-position: top right;
+}
+
+
+@keyframes shadowAnimation {
+    50% {
+        box-shadow: 5px 10px 15px #3362f4;
+    }
+}
+
+
+.timeline {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.timelineContent {
+    background: #1f1f1f;
+    -webkit-box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
+    box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
+    border-radius: 5px;
+    color: white;
+    padding: 1.75rem;
+    transition: 0.4s ease;
+    overflow-wrap: break-word !important;
+    margin: 1rem;
+}
+
+.timelineComponent {
+    margin: 0 20px 20px 20px;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: 1fr 3px 1fr;
+}
+
+.timelineMiddle {
+    position: relative;
+    background-image: linear-gradient(45deg, #3362f4, #1ab3ee);
+    width: 3px;
+    height: 100%;
+}
+
+.mainMiddle {
+    opacity: 0;
+}
+
+.timelineCircle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, #1ab3ee, #3362f4, #3362f4);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 1170px) {
+    .aboutMeContainer {
+        flex-direction: row;
+    }
+
+    .aboutMe {
+        width: 100%;
+        height: 90%;
+    }
+
+    .meImageContainer {
+        display: none;
+    }
+
+    .titleText {
+        font-size: 0.8rem;
+    }
+
+    .timeline {
+        width: 100%;
+    }
+    .timelineComponent {
+        padding: 1rem;
+    }
+
+    .descriptionText {
+        font-size: 0.7rem;
+    }
+
 }
