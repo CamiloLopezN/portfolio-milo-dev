@@ -27,7 +27,7 @@ export default function Home() {
               </p>
               <div className={homeStyles.socialNetworksContainer}>
                 {arraySocialNetworks.map((socialNetwork) => (
-                  <a key={socialNetwork.title} href={socialNetwork.url}>
+                  <a key={socialNetwork.title} href={socialNetwork.url} target={"_blank"}>
                     <img src={socialNetwork.src} alt={socialNetwork.title} />
                   </a>
                 ))}
@@ -39,36 +39,5 @@ export default function Home() {
         </div>
       </section>
     </>
-    // <section id={RoutesPath.HOME} className={homeStyles.headerAndHomeContainer}>
-    //   <div className={homeStyles.sectionContainer}>
-    //     <div className={`${homeStyles.container} ${homeStyles.homeContainer}`}>
-    //       <div className={homeStyles.divContainer}>
-    //         <h1 className={homeStyles.nameText}>{MY_NAME}</h1>
-    //         <p className={homeStyles.descriptionText}>
-    //           Passionate about web development and interested in <br /> the
-    //           implementation of new technologies that contribute to <br /> the
-    //           advancement of the community and promote the use
-    //           <br /> of IT as a solution to a wide range of current issues.
-    //         </p>
-    //         <div className={homeStyles.socialNetworksContainer}>
-    //           {arraySocialNetworks.map((socialNetwork) => (
-    //             <a key={socialNetwork.title} href={socialNetwork.url}>
-    //               <img src={socialNetwork.src} alt={socialNetwork.title} />
-    //             </a>
-    //           ))}
-    //         </div>
-    //       </div>
-    //
-    //       <div
-    //         className={`${homeStyles.divContainer} ${homeStyles.meImageContainer}`}>
-    //         <img
-    //           className={homeStyles.meImage}
-    //           src={meImage}
-    //           alt={ME_IMAGE_TEXT}
-    //         />
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
   );
 }
