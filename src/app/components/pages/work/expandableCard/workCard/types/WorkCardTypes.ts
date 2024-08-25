@@ -4,4 +4,5 @@ export interface WorkCardType {
   imagePath?: string,
   description: string,
   technologies: IconDefinition[]
+  workImagesPath?: string[]
 }

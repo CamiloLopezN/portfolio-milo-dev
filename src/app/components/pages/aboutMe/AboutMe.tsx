@@ -1,7 +1,7 @@
 import { RoutesPath } from "../../../utils/constants";
 import aboutMeStyles from "./AboutMe.module.css";
 import Section from "../../public/section/Section.tsx";
-import meAbout from "../../../../assets/images/me-about.png";
+import meAbout from "../../../../assets/images/me-about-2.png";
 
 export default function AboutMe() {
   return (
@@ -9,7 +9,7 @@ export default function AboutMe() {
       <div className={aboutMeStyles.aboutMeContainer}>
         <div className={aboutMeStyles.aboutMe}>
           <p>
-            Software developer with 2 years of experience in high impact projects. Efficient and clean solutions are my
+            Software developer with 3 years of experience in high impact projects. Efficient and clean solutions are my
             passion, as well as continuously learning new ways to take my knowledge to another level.
           </p>
 

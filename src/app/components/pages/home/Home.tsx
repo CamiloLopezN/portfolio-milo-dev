@@ -1,14 +1,12 @@
-import { MY_NAME, RoutesPath, socialNetworks } from "../../../utils/constants";
+import { ME_IMAGE_TEXT, MY_NAME, RoutesPath, socialNetworks } from "../../../utils/constants";
 import Header from "../../public/header/Header.tsx";
 import homeStyles from "./Home.module.css";
 import meImage from "../../../../assets/images/me.png";
-import { ME_IMAGE_TEXT } from "../../../utils/constants";
 
 export default function Home() {
   const arraySocialNetworks = [
     socialNetworks.github,
     socialNetworks.linkedin,
-    socialNetworks.instagram
   ];
 
   return (

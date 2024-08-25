@@ -5,7 +5,7 @@ import "react-magic-motion/card.css";
 import WorkCard from "./workCard/WorkCard.tsx";
 import { WorkCardType } from "./workCard/types/WorkCardTypes.ts";
 
-export default function ExpandableCard({ imagePath, description, technologies }: WorkCardType) {
+export default function ExpandableCard({ imagePath, description, technologies, workImagesPath }: WorkCardType) {
   const [isCardExpanded, setIsCardExpanded] = useState(false);
 
   return (
@@ -25,8 +25,9 @@ export default function ExpandableCard({ imagePath, description, technologies }:
           alt="Picture of the author"
         />
         {isCardExpanded && (
-          <WorkCard description={description} technologies={technologies} />
+          <WorkCard description={description} technologies={technologies} workImagesPath={workImagesPath} />
         )}
+
       </div>
     </MagicCard>
   );

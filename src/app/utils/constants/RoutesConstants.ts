@@ -7,6 +7,7 @@ export enum RoutesPath {
   ABOUT_ME = "about-me",
   CONTACT = "contact",
 }
+
 export enum RoutesIconPath {
   HOME = "home",
   WORK = "work",
@@ -17,9 +18,9 @@ export enum RoutesIconPath {
 
 
 export const routes: RoutesTypes[] = [
-  {routeName: "Home", routePath: RoutesPath.HOME, routeIconPath: "home"},
-  {routeName: "Work", routePath: RoutesPath.WORK, routeIconPath: "work"},
-  {routeName: "Skills", routePath: RoutesPath.SKILLS, routeIconPath: "skills"},
-  {routeName: "About Me", routePath: RoutesPath.ABOUT_ME, routeIconPath: "aboutMe"},
-  {routeName: "Contact", routePath: RoutesPath.CONTACT, routeIconPath: "contact"},
-]
+  { routeName: "Home", routePath: RoutesPath.HOME, routeIconPath: "home" },
+  { routeName: "Work", routePath: RoutesPath.WORK, routeIconPath: "work" },
+  { routeName: "Skills", routePath: RoutesPath.SKILLS, routeIconPath: "skills" },
+  { routeName: "About Me", routePath: RoutesPath.ABOUT_ME, routeIconPath: "aboutMe" },
+  { routeName: "Contact", routePath: RoutesPath.CONTACT, routeIconPath: "contact" }
+];

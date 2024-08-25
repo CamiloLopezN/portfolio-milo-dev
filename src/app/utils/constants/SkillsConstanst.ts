@@ -1,12 +1,12 @@
 import {
-  faReact,
-  faHtml5,
+  faAngular,
   faCss3,
+  faHtml5,
   faJava,
   faJs,
-  faAngular,
+  faMicrosoft,
   faNodeJs,
-  faMicrosoft
+  faReact
 } from "@fortawesome/free-brands-svg-icons";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 

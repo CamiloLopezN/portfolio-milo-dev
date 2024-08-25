@@ -11,9 +11,9 @@ export default function Work() {
   return (
     <Section id={RoutesPath.WORK} title={"My Work"}>
       <div className={workStyle.cardsContainer}>
-        {workInfo.map(({ imagePath, description, technologies }, index) => {
+        {workInfo.map(({ imagePath, description, technologies, workImagesPath }, index) => {
           return <ExpandableCard key={index} imagePath={imagePath} description={description}
-                                 technologies={technologies} />;
+                                 technologies={technologies} workImagesPath={workImagesPath} />;
         })}
       </div>
     </Section>
