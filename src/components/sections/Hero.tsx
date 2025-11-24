@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import { MY_NAME, MY_TITLE, MY_DESCRIPTION } from '../../data/constants';
+import { MY_NAME, MY_DESCRIPTION } from '../../data/constants';
 import TextType from '../ui/TextType';
 import FloatingLines from '../ui/FloatingLines';
 import MiloIcon from '../../assets/icons/MiloIcon.svg';
