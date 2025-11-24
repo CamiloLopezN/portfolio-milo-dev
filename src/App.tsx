@@ -8,7 +8,11 @@ import Contact from './components/sections/Contact';
 import { Home, Code2, Briefcase, Mail } from 'lucide-react';
 
 function App() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // Initialize from localStorage to prevent flash of wrong section on reload
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const savedIndex = localStorage.getItem('activeSectionIndex');
+    return savedIndex ? parseInt(savedIndex) : 0;
+  });
 
   const dockItems = [
     {
