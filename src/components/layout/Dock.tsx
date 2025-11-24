@@ -69,7 +69,17 @@ function DockItem({
             role="button"
             aria-haspopup="true"
         >
-            {Children.map(children, child => cloneElement(child, { isHovered } as any))}
+            {Children.map(children, child => {
+                // Pass isHovered only to components that need it (DockLabel)
+                if (child && typeof child === 'object' && 'type' in child) {
+                    const childType = (child as any).type;
+                    // Only pass isHovered to DockLabel, not to div or DockIcon
+                    if (childType?.name === 'DockLabel' || childType === DockLabel) {
+                        return cloneElement(child as ReactElement, { isHovered } as any);
+                    }
+                }
+                return child;
+            })}
         </motion.div>
     );
 }
@@ -334,10 +344,10 @@ export default function Dock({
                             onActivate={() => handleActivate(index)}
                             color={item.color}
                         >
-                            <>
+                            <div>
                                 <DockIcon>{item.icon}</DockIcon>
                                 <DockLabel>{item.label}</DockLabel>
-                            </>
+                            </div>
                         </DockItem>
                     ))}
                 </motion.div>

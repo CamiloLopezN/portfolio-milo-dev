@@ -54,10 +54,11 @@ const Skills = () => {
                         textColor="#ffffff"
                         borderRadius={0.05}
                         scrollEase={0.02}
+                        font="bold 60px sans-serif"
                     />
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

@@ -25,7 +25,14 @@ function autoBind(instance: any) {
 
 function createTextTexture(gl: any, text: string, font = 'bold 40px sans-serif', color = '#ffffff') {
     const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d')!;
+    const context = canvas.getContext('2d');
+
+    // Validate context exists
+    if (!context) {
+        console.warn('Failed to get 2d context for text texture');
+        const texture = new Texture(gl, { generateMipmaps: false });
+        return { texture, width: 1, height: 1 };
+    }
 
     // Set font first to measure correctly
     context.font = font;
@@ -33,9 +40,9 @@ function createTextTexture(gl: any, text: string, font = 'bold 40px sans-serif',
     const textWidth = Math.ceil(metrics.width);
     const textHeight = Math.ceil(parseInt(font, 10) * 1.4);
 
-    // Set canvas size with padding
-    canvas.width = textWidth + 40;
-    canvas.height = textHeight + 40;
+    // Set canvas size with padding - ensure minimum size
+    canvas.width = Math.max(textWidth + 40, 1);
+    canvas.height = Math.max(textHeight + 40, 1);
 
     // Re-set font after canvas resize
     context.font = font;
@@ -47,8 +54,11 @@ function createTextTexture(gl: any, text: string, font = 'bold 40px sans-serif',
     // Draw text in center
     context.fillText(text, canvas.width / 2, canvas.height / 2);
 
+    // Create texture and only assign canvas if it has valid dimensions
     const texture = new Texture(gl, { generateMipmaps: false });
-    texture.image = canvas;
+    if (canvas.width > 0 && canvas.height > 0) {
+        texture.image = canvas;
+    }
     return { texture, width: canvas.width, height: canvas.height };
 }
 
@@ -102,10 +112,12 @@ class Title {
         });
         this.mesh = new Mesh(this.gl, { geometry, program });
         const aspect = width / height;
-        const textHeight = this.plane.scale.y * 0.25;
+        // Increased text size from 0.25 to 0.35 for better visibility
+        const textHeight = this.plane.scale.y * 0.35;
         const textWidth = textHeight * aspect;
         this.mesh.scale.set(textWidth, textHeight, 1);
-        this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.6;
+        // Adjusted position to be closer to the card
+        this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.5;
         this.mesh.setParent(this.plane);
     }
 }
