@@ -1,0 +1,214 @@
+.dock-outer {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* Desktop: top positioning */
+@media (min-width: 768px) {
+    .dock-outer {
+        top: 20px;
+        bottom: auto;
+        align-items: flex-start;
+    }
+
+    .dock-panel {
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .dock-label {
+        bottom: auto;
+        top: 100%;
+        margin-bottom: 0;
+        margin-top: 8px;
+    }
+
+    .dock-label {
+        animation: label-slide-down 0.2s ease-out;
+    }
+
+    @keyframes label-slide-down {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+}
+
+/* Mobile: bottom positioning */
+@media (max-width: 767px) {
+    .dock-outer {
+        bottom: 20px;
+        top: auto;
+        align-items: flex-end;
+    }
+
+    .dock-panel {
+        box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .dock-label {
+        bottom: 100%;
+        top: auto;
+        margin-bottom: 8px;
+        margin-top: 0;
+    }
+
+    .dock-label {
+        animation: label-slide-up 0.2s ease-out;
+    }
+
+    @keyframes label-slide-up {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+}
+
+.dock-panel {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    pointer-events: auto;
+}
+
+.dock-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.2s;
+    outline: none;
+}
+
+.dock-item:hover,
+.dock-item:focus {
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+.dock-item.active {
+    background-color: var(--item-color, rgba(99, 102, 241, 0.2));
+    box-shadow: 0 0 10px var(--item-color, rgba(99, 102, 241, 0.2));
+}
+
+.dock-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e2e8f0;
+    position: relative;
+    z-index: 2;
+}
+
+.dock-label {
+    position: absolute;
+    left: 50%;
+    padding: 6px 12px;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Gooey Effect */
+.gooey-effect {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 12px;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: url(#goo);
+    background: transparent;
+}
+
+.gooey-effect.active {
+    background: transparent;
+}
+
+/* Only show background during hover on active item */
+.dock-item.active:hover .gooey-effect,
+.dock-item.active:focus .gooey-effect {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+}
+
+/* Particles */
+.particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) translate(var(--start-x), var(--start-y)) scale(0);
+    animation: particle-move var(--time) ease-out forwards;
+    background: var(--color);
+    opacity: 0;
+}
+
+.gooey-effect.active .particle {
+    opacity: 1;
+}
+
+.point {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    filter: blur(2px);
+}
+
+@keyframes particle-move {
+    0% {
+        transform: translate(-50%, -50%) translate(var(--start-x), var(--start-y)) scale(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) translate(var(--end-x), var(--end-y)) scale(var(--scale)) rotate(var(--rotate));
+        opacity: 0;
+    }
+}
+
+/* Color variables for particles */
+:root {
+    --color-1: rgba(99, 102, 241, 0.8);
+    --color-2: rgba(168, 85, 247, 0.8);
+    --color-3: rgba(236, 72, 153, 0.8);
+    --color-4: rgba(59, 130, 246, 0.8);
+}

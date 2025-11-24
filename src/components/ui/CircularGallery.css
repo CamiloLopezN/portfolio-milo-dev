@@ -1,0 +1,38 @@
+.circular-gallery {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.circular-gallery:active {
+    cursor: grabbing;
+}
+
+.circular-gallery::before,
+.circular-gallery::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.circular-gallery::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0) 100%);
+}
+
+.circular-gallery::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0) 100%);
+}
+
+.circular-gallery canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

@@ -1,52 +1,112 @@
-import "./App.css";
-import Home from "./app/components/pages/home/Home";
-import Work from "./app/components/pages/work/Work.tsx";
-import Skills from "./app/components/pages/skills/Skills.tsx";
-import AboutMe from "./app/components/pages/aboutMe/AboutMe.tsx";
-import { SlideMenu } from "./app/components/public/slideMenu/SlideMenu.tsx";
-import { ScrollContext } from "./app/utils/contexts/ScrollContext.ts";
-import { useEffect, useState } from "react";
-import { RoutesPath } from "./app/utils/constants";
-import { CurrentPathContext } from "./app/utils/contexts/CurrentPathContext.ts";
+import { useState, useEffect } from 'react';
+import Dock from './components/layout/Dock';
+import Footer from './components/layout/Footer';
+import Hero from './components/sections/Hero';
+import Skills from './components/sections/Skills';
+import Work from './components/sections/Work';
+import Contact from './components/sections/Contact';
+import { Home, Code2, Briefcase, Mail } from 'lucide-react';
 
 function App() {
-  const [isVisibleSlide, setIsVisibleSlide] = useState<boolean>(false);
-  const [currentPath, setCurrentPath] = useState<RoutesPath>(RoutesPath.HOME);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  const dockItems = [
+    {
+      icon: <Home size={24} />,
+      label: 'About',
+      onClick: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }),
+      color: 'rgba(99, 102, 241, 0.5)' // Indigo
+    },
+    {
+      icon: <Code2 size={24} />,
+      label: 'Skills',
+      onClick: () => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' }),
+      color: 'rgba(16, 185, 129, 0.5)' // Emerald
+    },
+    {
+      icon: <Briefcase size={24} />,
+      label: 'Work',
+      onClick: () => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }),
+      color: 'rgba(245, 158, 11, 0.5)' // Amber
+    },
+    {
+      icon: <Mail size={24} />,
+      label: 'Contact',
+      onClick: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }),
+      color: 'rgba(236, 72, 153, 0.5)' // Pink
+    }
+  ];
+
+  // Restore scroll position on mount
   useEffect(() => {
+    const savedIndex = localStorage.getItem('activeSectionIndex');
+    if (savedIndex) {
+      const index = parseInt(savedIndex);
+      const sections = ['about', 'skills', 'work', 'contact'];
+      const sectionId = sections[index];
+      const element = document.getElementById(sectionId);
+
+      if (element) {
+        // Small delay to ensure layout is ready
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'instant' });
+        }, 100);
+      }
+    }
+  }, []);
+
+  // Save scroll position and handle scroll spy
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const sections = document.querySelectorAll("section");
+      if (timeoutId) return;
 
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+      timeoutId = setTimeout(() => {
+        const sections = ['about', 'skills', 'work', 'contact'];
+        const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-        if (
-          scrollPosition >= sectionTop - 50 && // Adjust the offset as needed
-          scrollPosition < sectionTop + sectionHeight - 50 // Adjust the offset as needed
-        ) {
-          setCurrentPath(section.id as RoutesPath);
+        // Check if we're at the bottom of the page
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+          setActiveIndex(sections.length - 1);
+          localStorage.setItem('activeSectionIndex', (sections.length - 1).toString());
+          timeoutId = undefined;
+          return;
         }
-      });
+
+        for (let i = 0; i < sections.length; i++) {
+          const section = document.getElementById(sections[i]);
+          if (section) {
+            const { offsetTop, offsetHeight } = section;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveIndex(i);
+              localStorage.setItem('activeSectionIndex', i.toString());
+              break;
+            }
+          }
+        }
+        timeoutId = undefined;
+      }, 100); // Throttle to 100ms
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
 
   return (
-    <ScrollContext.Provider value={{ isVisibleSlide, setIsVisibleSlide }}>
-      <CurrentPathContext.Provider value={{ currentPath, setCurrentPath }}>
-        <SlideMenu />
-        <Home />
-        <Work />
+    <div className="bg-slate-950 min-h-screen text-slate-200 selection:bg-indigo-500/30">
+      <main>
+        <Hero />
         <Skills />
-        <AboutMe />
-      </CurrentPathContext.Provider>
-    </ScrollContext.Provider>
+        <Work />
+        <Contact />
+      </main>
+      <Footer />
+      <Dock items={dockItems} initialActiveIndex={activeIndex} />
+    </div>
   );
 }
 
